@@ -6,12 +6,14 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
 
-        XorShift xorShiftGenerator = new XorShift();
-        BigInteger numero = xorShiftGenerator.gerarNumeroAleatorio(80);
+        GeradorNumerosAleatorios geradorNumerosAleatorios = new GeradorNumerosAleatorios();
+        BigInteger numeroXor = geradorNumerosAleatorios.gerarNumeroAleatorio(80, "xorshift");
+        System.out.println(numeroXor);
+        System.out.println(numeroXor.toByteArray().length*8);
 
-        System.out.println(numero);
-        System.out.println(Arrays.toString(numero.toByteArray()));
-        System.out.println(numero.toByteArray().length*8);
+        BigInteger numeroBlum = geradorNumerosAleatorios.gerarNumeroAleatorio(80, "blumblumshub");
+        System.out.println(numeroBlum);
+        System.out.println(numeroBlum.toByteArray().length*8);
 
     }
 }
