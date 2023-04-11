@@ -1,7 +1,17 @@
 package br.ufsc.segurancaemcomputacao;
 
+import java.math.BigInteger;
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+
+        XorShift xorShiftGenerator = new XorShift();
+        BigInteger numero = xorShiftGenerator.gerarNumeroAleatorio(1024);
+
+        System.out.println(numero);
+        System.out.println(Arrays.toString(numero.toByteArray()));
+        System.out.println(numero.toByteArray().length*8);
+
     }
 }
