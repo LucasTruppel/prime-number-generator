@@ -45,11 +45,11 @@ public class GeradorNumerosAleatorios {
                 numeroGeradoBytes.length);
 
         // Caso o número seja par, subtrai 1
-        if (numeroGeradoBytes[numeroGeradoBytes.length-1] % 2 == 0) {
-            numeroGeradoBytes[numeroGeradoBytes.length-1] -= 1;
+        if (numeroGeradoCortadoBytes[numeroGeradoCortadoBytes.length-1] % 2 == 0) {
+            numeroGeradoCortadoBytes[numeroGeradoCortadoBytes.length-1] -= 1;
         }
 
-        return new BigInteger(numeroGeradoCortadoBytes);
+        return new BigInteger(numeroGeradoCortadoBytes).abs();
     }
 
 }
