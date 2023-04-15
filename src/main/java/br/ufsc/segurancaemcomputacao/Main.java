@@ -7,30 +7,20 @@ public class Main {
     public static void main(String[] args) {
 
         GeradorNumerosAleatorios geradorNumerosAleatorios = new GeradorNumerosAleatorios();
-        BigInteger numeroXor = geradorNumerosAleatorios.gerarNumeroAleatorio(80, "xorshift");
-        //System.out.println(numeroXor);
-        //System.out.println(numeroXor.toByteArray().length*8);
-
-        BigInteger numeroBlum = geradorNumerosAleatorios.gerarNumeroAleatorio(80, "blumblumshub");
-        //System.out.println(numeroBlum);
-        //System.out.println(numeroBlum.toByteArray().length*8);
-
-        //System.out.println(numeroBlum);
         MillerRabin millerRabin = new MillerRabin();
-        //boolean value = millerRabin.ehPrimo(numeroBlum, 1);
-        //System.out.println(value);
 
-        int[] primes = { 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199, 211, 223, 227, 229, 233, 239, 241, 251, 257, 263, 269, 271, 277, 281, 283, 293, 307, 311, 313, 317, 331, 337, 347, 349, 353, 359, 367, 373, 379, 383, 389, 397, 401, 409, 419, 421, 431, 433, 439, 443, 449, 457, 461, 463, 467, 479, 487, 491, 499, 503, 509, 521, 523, 541};
-        int erros = 0;
-        for (int prime : primes) {
-            boolean ehPrimo = millerRabin.ehPrimo(BigInteger.valueOf(prime), 20);
-            if (!ehPrimo) {
-                System.out.println(prime);
-                erros += 1;
+        BigInteger numeroXor;
+        int contador = 0;
+        while (true) {
+            contador += 1;
+            numeroXor = geradorNumerosAleatorios.gerarNumeroAleatorio(80, "xorshift");
+            //System.out.println("Numero gerado = " + numeroXor2);
+            if (millerRabin.ehPrimo(numeroXor, 10)) {
+                System.out.println("Numero primo: " + numeroXor);
+                break;
             }
         }
-        System.out.println(erros);
-
+        System.out.println("contador = " + contador);
 
     }
 }

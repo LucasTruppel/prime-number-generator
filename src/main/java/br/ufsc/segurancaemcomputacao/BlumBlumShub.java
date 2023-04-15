@@ -1,20 +1,22 @@
 package br.ufsc.segurancaemcomputacao;
 
+import java.math.BigInteger;
+
 public class BlumBlumShub {
 
     final int p = 62653;
     final int q = 24197;
-    final int m = p * q;
-    int numeroAnterior;
+    final BigInteger m = BigInteger.valueOf(p * q);
+    BigInteger numeroAnterior;
 
     BlumBlumShub() {
-        numeroAnterior = GeradorSeed.gerarSeed();
+        numeroAnterior = BigInteger.valueOf(GeradorSeed.gerarSeed());
     }
 
     public int gerarNumeroAleatorio32Bits() {
-        int numeroGerado = (numeroAnterior * numeroAnterior) % m;
+        BigInteger numeroGerado = (numeroAnterior.multiply(numeroAnterior)).mod(m);
         numeroAnterior = numeroGerado;
-        return numeroGerado;
+        return numeroGerado.intValue();
     }
 
 }
