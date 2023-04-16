@@ -6,6 +6,12 @@ import java.math.BigInteger;
 import java.nio.ByteBuffer;
 import java.util.Arrays;
 
+/**
+ * Essa classe serve para criar números aleatórios com quantidades de bits especifícias.
+ * Ela utiliza os algoritmos Xor Shift ou Blum Blum Shub, que geram números de 32 bits. Assim, ela gera números e os
+ * concatena até chegar na quantidade de bits desejada. Como o processo acontece de 32 em 32 bits, também corta os bits
+ * a mais do que o especificado.
+ */
 public class GeradorNumerosAleatorios {
 
     XorShift xorShift;
@@ -16,10 +22,19 @@ public class GeradorNumerosAleatorios {
         blumBlumShub = new BlumBlumShub();
     }
 
+    /**
+     * Gera números pseudo-aleatórios de 32 bits com o algoritmo especificado, concanteca e corta para chegar no número
+     * de bits especificado.
+     *
+     * @param numeroBits número de bits do número a ser gerado.
+     * @param algoritmo algoritmo a ser utilizado para gerar os números.
+     * @return número gerado.
+     */
     public BigInteger gerarNumeroAleatorio(int numeroBits, String algoritmo) {
         int tamanhoNumeroGeradoBits = 0;
         ByteArrayOutputStream numeroGeradoOutputStream = new ByteArrayOutputStream();
         algoritmo = algoritmo.toLowerCase();
+        // Gera números aleatórios e os concatena até chegar ou ultrapassar o numeroBits desejado.
         while (tamanhoNumeroGeradoBits < numeroBits) {
             int numeroParcial;
             if (algoritmo.equals("xorshift")) {
@@ -30,6 +45,7 @@ public class GeradorNumerosAleatorios {
                 throw new IllegalArgumentException();
             }
 
+            // Concatenação dos ‘bytes’
             byte[] numeroParcialBytes = ByteBuffer.allocate(4).putInt(numeroParcial).array();
             try {
                 numeroGeradoOutputStream.write(numeroParcialBytes);
