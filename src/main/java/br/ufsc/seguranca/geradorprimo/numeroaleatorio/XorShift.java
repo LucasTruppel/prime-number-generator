@@ -1,10 +1,6 @@
-package br.ufsc.segurancaemcomputacao;
+package br.ufsc.seguranca.geradorprimo.numeroaleatorio;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.math.BigInteger;
-import java.nio.ByteBuffer;
-import java.util.Arrays;
+import br.ufsc.seguranca.geradorprimo.util.GeradorSeed;
 
 public class XorShift {
 

@@ -1,4 +1,4 @@
-package br.ufsc.segurancaemcomputacao;
+package br.ufsc.seguranca.geradorprimo.numeroaleatorio;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -11,7 +11,7 @@ public class GeradorNumerosAleatorios {
     XorShift xorShift;
     BlumBlumShub blumBlumShub;
 
-    GeradorNumerosAleatorios() {
+    public GeradorNumerosAleatorios() {
         xorShift = new XorShift();
         blumBlumShub = new BlumBlumShub();
     }
@@ -19,6 +19,7 @@ public class GeradorNumerosAleatorios {
     public BigInteger gerarNumeroAleatorio(int numeroBits, String algoritmo) {
         int tamanhoNumeroGeradoBits = 0;
         ByteArrayOutputStream numeroGeradoOutputStream = new ByteArrayOutputStream();
+        algoritmo = algoritmo.toLowerCase();
         while (tamanhoNumeroGeradoBits < numeroBits) {
             int numeroParcial;
             if (algoritmo.equals("xorshift")) {

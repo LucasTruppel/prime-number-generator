@@ -1,4 +1,6 @@
-package br.ufsc.segurancaemcomputacao;
+package br.ufsc.seguranca.geradorprimo.numeroaleatorio;
+
+import br.ufsc.seguranca.geradorprimo.util.GeradorSeed;
 
 import java.math.BigInteger;
 
@@ -9,7 +11,7 @@ public class BlumBlumShub {
     final BigInteger m = BigInteger.valueOf(p * q);
     BigInteger numeroAnterior;
 
-    BlumBlumShub() {
+    public BlumBlumShub() {
         numeroAnterior = BigInteger.valueOf(GeradorSeed.gerarSeed());
     }
 

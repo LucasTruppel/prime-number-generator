@@ -1,4 +1,4 @@
-package br.ufsc.segurancaemcomputacao;
+package br.ufsc.seguranca.geradorprimo.util;
 
 import java.util.Random;
 
