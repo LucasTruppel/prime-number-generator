@@ -59,7 +59,7 @@ public class Main {
 
             // Salva os dados na matriz, transforma o tempo para microsegundos
             dados[i][0] = algoritmo;
-            dados[i][1] = tamanhosBitsNumeros[i] + " bits";
+            dados[i][1] = Integer.toString(tamanhosBitsNumeros[i]);
             dados[i][2] = String.format("%.2f", mediaTempo/1000).replace(",", ".");
             dados[i][3] = numero.toString();
         }
@@ -82,7 +82,7 @@ public class Main {
                                              GeradorNumerosPrimos geradorNumerosPrimos) {
 
         // Quantidade de números gerados de cada tamanho. Index é o mesmo do array tamanhosBitsNumeros.
-        final int[] quantidadeNumeros = {100, 100, 100, 100, 50, 50, 50, 10, 2, 1, 1};
+        final int[] quantidadeNumeros = {100, 100, 100, 100, 50, 50, 50, 25, 25, 10, 10};
 
         // Matriz com os dados gerados, será tranformada em um arquivo CSV
         String[][] dados = new String[11][5];
@@ -101,7 +101,7 @@ public class Main {
 
             // Salva os dados na matriz, transforma o tempo para microsegundos
             dados[i][0] = algoritmo;
-            dados[i][1] = tamanhosBitsNumeros[i] + " bits";
+            dados[i][1] = Integer.toString(tamanhosBitsNumeros[i]);
             dados[i][2] = String.format("%.2f", mediaTempo/1000).replace(",", ".");
             dados[i][3] = Integer.toString(quantidadeNumeros[i]);
             dados[i][4] = numero.toString();
@@ -111,9 +111,5 @@ public class Main {
         EscritorArquivoCsv.escreverCsv(dados, caminhoArquivo, limpar);
 
     }
-
-
-
-
 
 }
